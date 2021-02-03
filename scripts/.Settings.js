@@ -1,5 +1,5 @@
 export const settings = {
 	graphhopperKey: "",
-	npsKey: "",
-	weatherKey: ""
+	npsKey: "ah8dBq6bQqgUUcPyhQKofK4erY9syzJstzKHMGMD",
+	weatherKey: "a56ce011c11186efab6be61f90341659"
 };
