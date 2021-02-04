@@ -11,7 +11,7 @@ let attractions = []
      .then(
          parsedAttractions => {
              console.log("attractions", parsedAttractions)
-             attractions = parsedAttractions.data
+             attractions = parsedAttractions
          }
      )
   }

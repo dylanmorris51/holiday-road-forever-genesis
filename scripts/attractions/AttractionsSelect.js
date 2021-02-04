@@ -1,7 +1,7 @@
 import { useAttractions, getAttractions } from "./AttractionProvider.js"
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".dropdown__attractions")
+const contentTarget = document.querySelector(".aside__left")
 
 eventHub.addEventListener("change", changeEvent =>{
     if(changeEvent.target.id === "attractionSelect") {
@@ -17,11 +17,10 @@ eventHub.addEventListener("change", changeEvent =>{
 
 const render = attractionsSelection => {
 contentTarget.innerHTML = `
-<select class="dropdown" id="attractionSelect">
+<select class="dropdown__attractions" id="attractionSelect">
 <option value="0">Please select an attraction...</option>
 ${attractionsSelection.map(attraction => {
-    // const attraction = attraction.name
-    return `<option value="${attraction.id}">${attraction}</option> 
+    return `<option value="${attraction.id}">${attraction.name}</option> 
     `
 }).join("")}
 </select>
