@@ -11,6 +11,7 @@ eventHub.addEventListener("change", event => {
             }
         })
         eventHub.dispatchEvent(customEvent)
+        console.log("Park Selection Event Successfully Dispatched!")
     }
 })
 
