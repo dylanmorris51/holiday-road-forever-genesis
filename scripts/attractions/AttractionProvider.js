@@ -1,5 +1,11 @@
 let attractions = []
 
+<<<<<<< HEAD
+export const useAttractions = () => {
+    return attractions.slice()
+}
+
+=======
 
 
  export const useAttractions = () => {
@@ -18,3 +24,4 @@ let attractions = []
     
 
  
+>>>>>>> main

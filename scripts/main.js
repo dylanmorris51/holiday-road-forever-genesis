@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+import { parkSelect } from "./parks/ParkSelect.js"
+
+
+parkSelect()
+=======
 // import { useParks, getParks } from "./parks/ParkProvider.js"
 
 // getParks()
@@ -14,3 +20,4 @@ getWeather()
     console.log(weather)
 })
  
+>>>>>>> main
