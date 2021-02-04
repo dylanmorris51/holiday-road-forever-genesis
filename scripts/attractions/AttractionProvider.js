@@ -10,7 +10,7 @@ let attractions = []
      .then(response => response.json())
      .then(
          parsedAttractions => {
-             console.log("parks", parsedAttractions)
+             console.log("attractions", parsedAttractions)
              attractions = parsedAttractions.data
          }
      )
