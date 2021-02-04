@@ -4,7 +4,7 @@ const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".aside__left")
 
 eventHub.addEventListener("change", event => {
-    if(event.target.id==="dropdown__parks") {
+    if(event.target.id==="parkSelect") {
         const customEvent = new CustomEvent("parkChosen", {
             detail: {
                 parkThatWasChosen: event.target.value
@@ -15,8 +15,23 @@ eventHub.addEventListener("change", event => {
 })
 
 
-const render = parksSelection => {
+const render = parkSelection => {
     contentTarget.innerHTML = `
     
-    `
+    <select class="dropdown" id="parkSelect">
+        <option value ="0"> Choose a park! </option>
+            ${parkSelection.map(park => `
+                <option value="${park.id}">${park.fullName}</option>
+            `).join("")
+        }
+    </select>
+        `
+}
+
+export const parkSelect = () => {
+    getParks()
+        .then(() => {
+            const parks = useParks()
+            render(parks)
+        })
 }
