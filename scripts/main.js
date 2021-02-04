@@ -1,8 +1,16 @@
-import { useParks, getParks } from "./parks/ParkProvider.js"
+// import { useParks, getParks } from "./parks/ParkProvider.js"
 
-getParks()
+// getParks()
+// .then(() => {
+//     const parkData = useParks()
+//     console.log(parkData)
+// })
+ 
+import { useWeather, getWeather} from "./weather/WeatherProvider.js"
+
+getWeather()
 .then(() => {
-    const parkData = useParks()
-    console.log(parkData)
+    const weather = useWeather()
+    console.log(weather)
 })
  
