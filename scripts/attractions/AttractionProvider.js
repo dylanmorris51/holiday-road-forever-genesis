@@ -11,7 +11,7 @@ export const getAttractions = () => {
         .then(
             parsedAttractions => {
                 console.log("attractions", parsedAttractions)
-                attractions = parsedAttractions.data
+                attractions = parsedAttractions
             }
         )
 }
