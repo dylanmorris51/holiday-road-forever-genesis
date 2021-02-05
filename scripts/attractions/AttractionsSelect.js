@@ -10,6 +10,7 @@ eventHub.addEventListener("change", changeEvent =>{
                 attractionChosen: changeEvent.target.value
             }
         })
+        console.log("Attraction That Was Chosen:", customEvent.detail.attractionChosen)
         console.log("Attractions Selection Successfully Dispatched!")
         eventHub.dispatchEvent(customEvent)
     }
