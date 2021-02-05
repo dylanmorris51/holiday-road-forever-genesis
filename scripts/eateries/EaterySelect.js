@@ -3,7 +3,7 @@
 import { useEateries, getEateries} from './EateryProvider.js'
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".eatery__card") 
+const contentTarget = document.querySelector(".dropdown__eateries") 
 
 //eaterySelect dropdown ==> EateryList.js
 eventHub.addEventListener("change", event => {

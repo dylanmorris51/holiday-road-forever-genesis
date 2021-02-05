@@ -1,7 +1,7 @@
 import { useAttractions, getAttractions } from "./AttractionProvider.js"
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".aside__left")
+const contentTarget = document.querySelector(".dropdown__attractions")
 
 eventHub.addEventListener("change", changeEvent =>{
     if(changeEvent.target.id === "attractionSelect") {
