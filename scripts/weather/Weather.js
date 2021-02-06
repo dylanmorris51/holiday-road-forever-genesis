@@ -1,11 +1,10 @@
 export const Weather = (weatherObj) => {
     return `
     <div class="weather__card">
-        <h4 class="dayOfTheWeek">${weatherObj.list.dt}</h4>
-        <p class="weather__icon">${weatherObj.list.weather.icon}</p>
-        <p class="weather__temp_min">${weatherObj.list.main.temp_min}</p>
-        <p class="weather__temp_max">${weatherObj.list.main.temp_max}</p>
-        <p class="weather__forecast">${weatherObj.list.weather.main}</p>
+        <h4 class="dayOfTheWeek">${weatherObj.weather[0].dt}</h4>
+        <div><img class="weather__icon" src="http://openweathermap.org/img/wn/1${weatherObj.weather[0].icon}@2x.png"></div>
+        <div class="weather__temp">${weatherObj.main.temp_min} / ${weatherObj.main.temp_max}</div>
+        <div class="weather__forecast">${weatherObj.weather[0].main}</div>
     </div>
     `
 }

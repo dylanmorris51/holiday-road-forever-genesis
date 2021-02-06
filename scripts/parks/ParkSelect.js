@@ -3,13 +3,36 @@ import { useParks, getParks } from './ParkProvider.js'
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".dropdown__parks")
 
+export const parkSelect = () => {
+    getParks()
+        .then(() => {
+            const parks = useParks()
+            render(parks)
+        })
+}
+
+const render = parkSelection => {
+    contentTarget.innerHTML = `
+    
+    <select class="dropdown" id="parkSelect">
+        <option value ="0">Please select a park!</option>
+            ${parkSelection.map(parkObj => `
+                <option value="${parkObj.id}">${parkObj.fullName}</option>
+            `).join("")
+        }
+    </select>
+        `
+}
+
 // Event for ParkSelect dropdown ==> ParkList.js
+
 eventHub.addEventListener("change", event => {
-    if(event.target.id==="parkSelect") {
+    if(event.target.id === "parkSelect") {
         
+        const parkSelection = event.target.value
         const customEvent = new CustomEvent("parkChosen", {
             detail: {
-                parkThatWasChosen: event.target.value
+                parkThatWasChosen: parkSelection
                 
             }
         })
@@ -19,13 +42,28 @@ eventHub.addEventListener("change", event => {
     }
 })
 
+// eventHub.addEventListener("change", event => {
+//     if(event.target.id==="parkSelect") {
+        
+//         const customEvent = new CustomEvent("parkChosen", {
+//             detail: {
+//                 parkThatWasChosen: event.target.value
+                
+//             }
+//         })
+//         console.log("Park That Was Chosen:", customEvent.detail.parkThatWasChosen)
+//         eventHub.dispatchEvent(customEvent)
+//         console.log("Park Selection Event Successfully Dispatched!")
+//     }
+// })
+
 
 
 
 
 // Event for ParkSelect dropdown ==> WeatherList.js (sending the right coordinates)
 eventHub.addEventListener("change", changeEvent => {
-    if(changeEvent.target.id==="parkSelect") {
+    if(changeEvent.target.id === "parkSelect") {
         getParks()
             .then(() => {
                 const parklocation = useParks()
@@ -50,24 +88,3 @@ eventHub.addEventListener("change", changeEvent => {
             })
     }
 })
-
-const render = parkSelection => {
-    contentTarget.innerHTML = `
-    
-    <select class="dropdown" id="parkSelect">
-        <option value ="0"> Choose a park! </option>
-            ${parkSelection.map(park => `
-                <option value="${park.id}">${park.fullName}</option>
-            `).join("")
-        }
-    </select>
-        `
-}
-
-export const parkSelect = () => {
-    getParks()
-        .then(() => {
-            const parks = useParks()
-            render(parks)
-        })
-}
