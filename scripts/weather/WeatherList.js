@@ -8,16 +8,16 @@ const contentTarget = document.querySelector(".weather__container")
 
 const render = (weatherPreview) => {
     let weatherPreviewHTML = ""
-    for (const weather of weatherPreview)
+        for (const weatherObj of weatherPreview) {
 
-    weatherPreviewHTML += Weather(weather)
+    weatherPreviewHTML += Weather(weatherObj)
 
     contentTarget.innerHTML = `
     <h2>Weekly Forecast</h2>
         <div class="daily__weather">
         ${weatherPreviewHTML}
         </div>
-    `
+    `}
 }
 
 export const WeatherList = () => {

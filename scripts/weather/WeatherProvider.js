@@ -9,6 +9,8 @@ export let weather = []
 // you need to know what the parksObj is. It's a placeholder for now
 export const getWeather = (parkObj) => {
     const weatherFetchCall = `http://api.openweathermap.org/data/2.5/forecast?lat=${parkObj.lat}&lon=${parkObj.lon}&appid=a56ce011c11186efab6be61f90341659&units=imperial`
+    // fucntion to find object and pass in object, extract lat and lon (And id) 
+    
     return fetch(weatherFetchCall)
         .then(response => response.json())
             .then( parsedWeather => {

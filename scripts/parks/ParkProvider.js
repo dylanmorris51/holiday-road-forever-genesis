@@ -5,6 +5,7 @@
  export const useParks = () => {
      return parks.slice()
  }
+ 
   export const getParks = () => {
      return fetch("https://developer.nps.gov/api/v1/parks?api_key=ah8dBq6bQqgUUcPyhQKofK4erY9syzJstzKHMGMD")
      .then(response => response.json())
