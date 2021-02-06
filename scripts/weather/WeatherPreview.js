@@ -1,29 +1,33 @@
 import { useParks, getParks } from '../parks/ParkProvider.js'
 import { Weather } from './Weather.js'
-import { getWeather, weather, useWeather } from './WeatherProvider.js'
+import { getWeather, useWeather } from './WeatherProvider.js'
 
 const eventHub = document.querySelector(".container")
 
 const contentTarget = document.querySelector(".weather__container")
 
-const render = (weatherPreview) => {
-    let weatherPreviewHTML = ""
-        for (const weatherObj of weatherPreview) {
+const render = (weatherArray) => {
 
-    weatherPreviewHTML += Weather(weatherObj)
+    let weatherPreviewHTML = ""
+
+    for (const weather of weatherCollection) {
+    weatherPreviewHTML += Weather(weather)
 
     contentTarget.innerHTML = `
-    <h2>Weekly Forecast</h2>
+        <h2>Five Day Forecast</h2>
         <div class="daily__weather">
         ${weatherPreviewHTML}
         </div>
     `}
 }
 
-export const WeatherList = () => {
-        const fiveDayWeather = useWeather()
-        render(fiveDayWeather)
-    }
+export const WeatherPreview = () => {
+    getWeather(park)
+    .then(() => {
+        const weatherArray = useWeather()
+        render(weatherArray)
+    })
+}
 
 eventHub.addEventListener("coordinates", event =>{
     console.log(event.detail.coordinates, "park chosen reaction")
