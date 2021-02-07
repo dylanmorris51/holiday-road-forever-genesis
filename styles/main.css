@@ -16,6 +16,17 @@ header {
     margin-right: auto;
 }
 
+/* .title {
+        text-align: center;
+        padding: 1em;
+} */
+    
+.logo {
+    margin: 35px 15px 0px 60px;
+    width: 200px;
+    height: 200px;
+}
+
 select {
     width: 250px;
     margin: 20px;
