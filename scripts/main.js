@@ -3,6 +3,7 @@ import { attractionSelect } from "./attractions/AttractionsSelect.js"
 import { eaterySelect } from "./eateries/EaterySelect.js"
 import "./weather/WeatherPreview.js"
 import "./parks/ParkPreview.js"
+import "./attractions/AttractionPreview.js"
 
 parkSelect()
 attractionSelect()

@@ -34,10 +34,8 @@ contentTarget.innerHTML = `
 
 
 export const attractionSelect = () => {
-// Trigger fetching the API data and loading it into application state
     getAttractions()
     .then( () => {
-    // Get all convictions from application state
     const attractions = useAttractions()
     render(attractions)
     })
