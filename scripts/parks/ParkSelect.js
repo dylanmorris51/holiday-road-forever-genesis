@@ -43,34 +43,33 @@ eventHub.addEventListener("change", changeEvent => {
 
 
 
-
-
 // Event for ParkSelect dropdown ==> WeatherPreview.js (sending the right coordinates)
-// eventHub.addEventListener("change", changeEvent => {
-//     if(changeEvent.target.id === "parkSelect") {
-//         getParks()
-//             .then(() => {
-//                 const parklocation = useParks()
-//                 // Filter for coordinates
-//                 const selectedPark = changeEvent.target.value
-//                 console.log('selectedPark: ', selectedPark);
 
-//                 const parkObject = parklocation.find(park => park.id === selectedPark)
-//                 console.log('parkObject: ', parkObject);
+eventHub.addEventListener("change", changeEvent => {
+    if(changeEvent.target.id === "parkSelect") {
+        getParks()
+            .then(() => {
+                const parklocation = useParks()
+                // Filter for coordinates
+                const selectedPark = changeEvent.target.value
+                console.log('selectedPark: ', selectedPark);
 
-//                 const dataPayload = {
-//                     lon: parkObject.longitude,
-//                     lat: parkObject.latitude
-//                 }
-//                 console.log('dataPayload: ', dataPayload);
+                const parkObject = parklocation.find(park => park.id === selectedPark)
+                console.log('parkObject: ', parkObject);
+
+                const dataPayload = {
+                    lon: parkObject.longitude,
+                    lat: parkObject.latitude
+                }
+                console.log('dataPayload: ', dataPayload);
                 
-//                 const coordinatesEvent = new CustomEvent("coordinates", {
-//                     detail: {
-//                         coordinates: dataPayload
-//                     }
-//                 })
-//                 eventHub.dispatchEvent(coordinatesEvent)
-//                 console.log("Coordinates Were Succesfully Dispatched!", coordinatesEvent.detail.coordinates)
-//             })
-//     }
-// })
+                const coordinatesEvent = new CustomEvent("coordinates", {
+                    detail: {
+                        coordinates: dataPayload
+                    }
+                })
+                eventHub.dispatchEvent(coordinatesEvent)
+                console.log("Coordinates Were Succesfully Dispatched!", coordinatesEvent.detail.coordinates)
+            })
+    }
+})
