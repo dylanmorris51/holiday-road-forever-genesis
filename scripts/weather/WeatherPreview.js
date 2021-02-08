@@ -27,14 +27,14 @@ export const WeatherPreview = () => {
     })
 }
 
-// eventHub.addEventListener("coordinates", event =>{
-//     console.log(event.detail.coordinates, "park chosen reaction")
+eventHub.addEventListener("coordinates", event =>{
+    console.log(event.detail.coordinates, "park chosen reaction")
 
-//     const weatherCoordinates = event.detail.coordinates
-//     console.log(weatherCoordinates, "park object")
-//     getWeather(weatherCoordinates).then(() => {
-//         // console.log(weather, "weather data received")
+    const weatherCoordinates = event.detail.coordinates
+    console.log(weatherCoordinates, "park object")
+    getWeather(weatherCoordinates).then(() => {
+        // console.log(weather, "weather data received")
 
-//         WeatherPreview()
-//     })
-// })
+        WeatherPreview()
+    })
+})

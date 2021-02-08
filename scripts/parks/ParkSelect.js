@@ -11,12 +11,12 @@ export const parkSelect = () => {
         })
 }
 
-const render = parkSelection => {
+const render = (parkSelect) => {
     contentTarget.innerHTML = `
     
     <select class="dropdown" id="parkSelect">
         <option value ="0">Please select a park!</option>
-            ${parkSelection.map(parkObj => `
+            ${parkSelect.map(parkObj => `
                 <option value="${parkObj.id}">${parkObj.fullName}</option>
             `).join("")
         }
@@ -24,15 +24,14 @@ const render = parkSelection => {
         `
 }
 
-// Event for ParkSelect dropdown ==> ParkList.js
+// Event for ParkSelect dropdown ==> ParkPreview.js
 
-eventHub.addEventListener("change", event => {
-    if(event.target.id === "parkSelect") {
+eventHub.addEventListener("change", changeEvent => {
+    if(changeEvent.target.id === "parkSelect") {
         
-        const parkSelection = event.target.value
-        const customEvent = new CustomEvent("parkChosen", {
+        const customEvent = new CustomEvent("parkSelected", {
             detail: {
-                parkThatWasChosen: parkSelection
+                parkThatWasChosen: changeEvent.target.value
                 
             }
         })
@@ -42,49 +41,36 @@ eventHub.addEventListener("change", event => {
     }
 })
 
-// eventHub.addEventListener("change", event => {
-//     if(event.target.id==="parkSelect") {
-        
-//         const customEvent = new CustomEvent("parkChosen", {
-//             detail: {
-//                 parkThatWasChosen: event.target.value
+
+
+
+
+// Event for ParkSelect dropdown ==> WeatherPreview.js (sending the right coordinates)
+// eventHub.addEventListener("change", changeEvent => {
+//     if(changeEvent.target.id === "parkSelect") {
+//         getParks()
+//             .then(() => {
+//                 const parklocation = useParks()
+//                 // Filter for coordinates
+//                 const selectedPark = changeEvent.target.value
+//                 console.log('selectedPark: ', selectedPark);
+
+//                 const parkObject = parklocation.find(park => park.id === selectedPark)
+//                 console.log('parkObject: ', parkObject);
+
+//                 const dataPayload = {
+//                     lon: parkObject.longitude,
+//                     lat: parkObject.latitude
+//                 }
+//                 console.log('dataPayload: ', dataPayload);
                 
-//             }
-//         })
-//         console.log("Park That Was Chosen:", customEvent.detail.parkThatWasChosen)
-//         eventHub.dispatchEvent(customEvent)
-//         console.log("Park Selection Event Successfully Dispatched!")
+//                 const coordinatesEvent = new CustomEvent("coordinates", {
+//                     detail: {
+//                         coordinates: dataPayload
+//                     }
+//                 })
+//                 eventHub.dispatchEvent(coordinatesEvent)
+//                 console.log("Coordinates Were Succesfully Dispatched!", coordinatesEvent.detail.coordinates)
+//             })
 //     }
 // })
-
-
-
-
-
-// Event for ParkSelect dropdown ==> WeatherList.js (sending the right coordinates)
-eventHub.addEventListener("change", changeEvent => {
-    if(changeEvent.target.id === "parkSelect") {
-        getParks()
-            .then(() => {
-                const parklocation = useParks()
-                // Filter for coordinates
-                const selectedPark = changeEvent.target.value
-                console.log('selectedPark: ', selectedPark);
-                const parkObject = parklocation.find(park => park.id === selectedPark)
-                console.log('parkObject: ', parkObject);
-                const dataPayload = {
-                    lon: parkObject.longitude,
-                    lat: parkObject.latitude
-                }
-                console.log('dataPayload: ', dataPayload);
-                
-                const coordinatesEvent = new CustomEvent("coordinates", {
-                    detail: {
-                        coordinates: dataPayload
-                    }
-                })
-                eventHub.dispatchEvent(coordinatesEvent)
-                console.log("Coordinates Were Succesfully Dispatched!", coordinatesEvent.detail.coordinates)
-            })
-    }
-})
