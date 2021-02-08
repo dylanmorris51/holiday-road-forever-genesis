@@ -4,6 +4,7 @@ import { eaterySelect } from "./eateries/EaterySelect.js"
 import "./weather/WeatherPreview.js"
 import "./parks/ParkPreview.js"
 import "./attractions/AttractionPreview.js"
+import "./eateries/EateryPreview.js"
 
 parkSelect()
 attractionSelect()
