@@ -18,14 +18,14 @@ eventHub.addEventListener("change", changeEvent =>{
 
 const render = attractionsSelection => {
 contentTarget.innerHTML = `
-<select class="dropdown__attractions" id="attractionSelect">
-<option value="0">Please select an attraction!</option>
-${attractionsSelection.map(attraction => {
-    return `<option value="${attraction.id}">${attraction.name}</option> 
+    <select class="dropdown__attractions" id="attractionSelect">
+        <option value="0">Please select an attraction!</option>
+        ${attractionsSelection.map(attraction => {
+        return `<option value="${attraction.id}">${attraction.name}</option> 
     `
-}).join("")}
-</select>
-`
+    }).join("")}
+    </select>
+    `
 }
 
 
@@ -35,10 +35,10 @@ ${attractionsSelection.map(attraction => {
 
 export const attractionSelect = () => {
 // Trigger fetching the API data and loading it into application state
-getAttractions()
-.then( () => {
-  // Get all convictions from application state
-  const attractions = useAttractions()
-  render(attractions)
-})
+    getAttractions()
+    .then( () => {
+    // Get all convictions from application state
+    const attractions = useAttractions()
+    render(attractions)
+    })
 }
