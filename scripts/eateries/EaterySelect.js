@@ -15,12 +15,12 @@ eventHub.addEventListener("change", event => {
                 
             }
         })
-        console.log("Eatery That Was Chosen:", customEvent.detail.eateryThatWasChosen)
+        console.log("Eatery That Was Chosen:", customEvent.detail.eateryChosen)
         eventHub.dispatchEvent(customEvent)
         console.log("Eatery Selection Event Successfully Dispatched!")
     }
 })
- 
+
 const render = eaterySelect => {
     contentTarget.innerHTML = `
         <select class="dropdown" id="eaterySelect">
