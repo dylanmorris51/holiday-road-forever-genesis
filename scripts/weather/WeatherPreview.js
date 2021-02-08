@@ -22,11 +22,8 @@ const render = (weatherArray) => {
 }
 
 export const WeatherPreview = () => {
-    getWeather()
-    .then(() => {
         const weatherArray = useWeather()
         render(weatherArray)
-    })
 }
 
 eventHub.addEventListener("coordinates", event =>{
