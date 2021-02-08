@@ -1,19 +1,20 @@
+import { settings } from '../Settings.js'
+
 let parks = []
 
-
-
-export const useParks = () => {
-    return parks.slice()
-}
-export const getParks = () => {
-    return fetch("https://developer.nps.gov/api/v1/parks?api_key=ah8dBq6bQqgUUcPyhQKofK4erY9syzJstzKHMGMD")
-        .then(response => response.json())
-        .then(
-            parsedParks => {
-                console.log("parks", parsedParks)
-                parks = parsedParks.data
-            }
-        )
-}
-
+ export const useParks = () => {
+     return parks.slice()
+ }
+ 
+  export const getParks = () => {
+     return fetch(`https://developer.nps.gov/api/v1/parks?api_key=${settings.npsKey}`)
+     .then(response => response.json())
+     .then(
+         parsedParks => {
+             console.log("parks", parsedParks)
+             parks = parsedParks.data
+         }
+     )
+  }
+    
 
