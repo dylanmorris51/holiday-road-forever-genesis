@@ -5,9 +5,13 @@ import "./weather/WeatherPreview.js"
 import "./parks/ParkPreview.js"
 import "./attractions/AttractionPreview.js"
 import "./eateries/EateryPreview.js"
+import { ShowItineraryButton } from "./itinerary/ItinerarySaveButton.js"
+
 
 parkSelect()
 attractionSelect()
 eaterySelect()
+ShowItineraryButton() 
+
 
 
