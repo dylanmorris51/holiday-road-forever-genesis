@@ -1,6 +1,8 @@
 import "../parks/Park.js"
 import { settings } from '../Settings.js'
 
+//incomplete weather data/rendering
+
 export let weather = []
 // Check to see if the URL loads when a variable is in the fetch call:
 // const taco = {
