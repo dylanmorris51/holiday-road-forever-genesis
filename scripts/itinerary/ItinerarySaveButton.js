@@ -7,7 +7,9 @@ const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".save__itenerary__button")
 
 export const ShowItineraryButton = () => {
+    // if(document.querySelector("#attractionSelect").value !=="0" && document.querySelector("#eaterySelect").value !== "0" && document.querySelector("#parkSelect").value !== "0"){
     contentTarget.innerHTML = "<button id='showItinerary'> Save Itinerary! </button>"
+    // }
 }
 
 eventHub.addEventListener("click", clickEvent => {
