@@ -22,9 +22,10 @@ eventHub.addEventListener("eateryChosen", eateryChosenEvent => {
 const renderEatery = (eateryObj) => {
 
     contentTarget.innerHTML = `
-    <div class="eatery_name">${eateryObj.businessName}
-    ${ShowEateryButton(eateryObj)}
-    </div>
+        <section class="preview__card eatery__card">    
+            <h4 class="eatery_name">${eateryObj.businessName}</h4>
+            ${ShowEateryButton(eateryObj)}
+        </section>
     `
 }
 
@@ -38,6 +39,7 @@ export const EateryModal = (eateryObj) => {
             <div class="modal__content">
                 <h2>More Information</h2>
                 <h3 class="eatery__name">${eateryObj.businessName}</h3>
+                <p class="eatery__location">${eateryObj.city}, ${eateryObj.state}</p>
                 <section class="modal__info">
                 <div class="eatery__description">${eateryObj.description}</div>
                 </section>

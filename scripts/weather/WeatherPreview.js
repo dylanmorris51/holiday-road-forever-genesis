@@ -4,8 +4,6 @@ import { getWeather, useWeather } from './WeatherProvider.js'
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".weather__container")
 
-//incomplete weather data/rendering
-
 const render = (weatherArray) => {
 
     let weatherPreviewHTML = ""
@@ -14,7 +12,7 @@ const render = (weatherArray) => {
     weatherPreviewHTML += Weather(weatherObj)
 
     contentTarget.innerHTML = `
-        <h2>Five Day Forecast</h2>
+        <h3>Five Day Weather Forecast</h3>
         <div class="daily__weather">
         ${weatherPreviewHTML}
         </div>`
