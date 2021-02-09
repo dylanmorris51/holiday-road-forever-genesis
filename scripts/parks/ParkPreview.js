@@ -22,10 +22,12 @@ eventHub.addEventListener("parkSelected", parkChosenEvent => {
 const renderPark = (parkObj) => {
 
     contentTarget.innerHTML = `
-    <div class="park_name">${parkObj.fullName}</div>
-    <div class="park_state">${parkObj.states}</div>
-    ${ShowParkButton(parkObj)}
-    `
+        <section class="preview__card park__card">
+            <h4 class="park__name">${parkObj.fullName}</h4>
+            <div><img class="park__img" src="${parkObj.images[0].url}" alt="${parkObj.images[0].altText}"></div>
+            ${ShowParkButton(parkObj)}
+        </section>
+        `
 }
 
 // Park Details Button Event Listener
@@ -52,9 +54,11 @@ export const ParkModal = (parkObj) => {
         `<div id="park_modal" class="modal_parent">
             <div class="modal__content">
                 <h2>More Information</h2>
-                <h3 class="park__description">${parkObj.description}</h3>
+                <h3 class="park__name">${parkObj.fullName}</h3>
+                <p class="park__location">${parkObj.addresses[0].city}, ${parkObj.states}</p>
+                <p class="park__description">${parkObj.description}</p>
                 <section class="modal__info">
-                <div class="park__directions">${parkObj.directionsInfo}</div>
+                    <p class="park__directions">${parkObj.directionsInfo}</p>
                 </section>
                 <button id="modal__close">Close</button>    
             </div>

@@ -17,16 +17,11 @@ header {
     margin-left: auto;
     margin-right: auto;
 }
-
-/* .title {
-        text-align: center;
-        padding: 1em;
-} */
     
 .logo {
-    margin: 35px 15px 0px 60px;
     width: 200px;
     height: 200px;
+    margin-left: 25%;
 }
 
 select {
@@ -69,3 +64,44 @@ select {
     padding: 10px;
     border-radius: 10px;
 }
+
+.daily__weather {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 10px;  
+    padding: 30px;   
+    height: 300px; 
+    overflow: auto;  
+    white-space: nowrap; 
+}
+
+.weather__card {
+    flex: 0 0 auto;
+    border: 1px solid #341C09;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #341C09;
+    border-radius: 5px;
+    color: #003300;
+}
+
+button {
+    transition-duration: 0.4s;
+    font-size: 16px;
+    padding: 8px;
+    margin: 20px;
+  }
+  
+  button:hover {
+    background-color: #003300;
+    color: white;
+  }
+
+  .park__img {
+      width: 400px;
+      /* height: auto; */
+  }
+
+  .preview__card {
+      text-align: center;
+  }
