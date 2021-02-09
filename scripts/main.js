@@ -5,13 +5,19 @@ import "./weather/WeatherPreview.js"
 import "./parks/ParkPreview.js"
 import "./attractions/AttractionPreview.js"
 import "./eateries/EateryPreview.js"
-import { ShowItineraryButton } from "./itinerary/ItinerarySaveButton.js"
-
+import  { ShowItineraryButton } from "./itinerary/ItinerarySaveButton.js"
 
 parkSelect()
 attractionSelect()
 eaterySelect()
 ShowItineraryButton() 
+
+//testcodelolkillmejkilovelife
+// const eventHub = document.querySelector(".container")
+
+// eventHub.addEventListener(
+//     "parkSelect" 
+// )
 
 
 

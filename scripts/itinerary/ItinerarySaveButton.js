@@ -6,13 +6,38 @@ import { useParks, getParks } from '../parks/ParkProvider.js'
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".save__itenerary__button")
 
+let attractionId 
+let eateryId 
+let parkId 
+
+//listens for park selector 
+eventHub.addEventListener("parkSelected", event => {
+    //IF SO grabs the park id and sets the literal park id to "parkId"
+    parkId = event.detail.parkThatWasChosen 
+    //check to see if all THREE have been selected
+    ShowItineraryButton()
+})
+
+//
+eventHub.addEventListener("eateryChosen", event => {
+    eateryId = event.detail.eateryChosen 
+    ShowItineraryButton()
+})
+
+eventHub.addEventListener("attractionChosen", event => {
+    attractionId = event.detail.attractionChosen
+    ShowItineraryButton()
+})
+
 export const ShowItineraryButton = () => {
-    // if(document.querySelector("#attractionSelect").value !=="0" && document.querySelector("#eaterySelect").value !== "0" && document.querySelector("#parkSelect").value !== "0"){
-    contentTarget.innerHTML = "<button id='showItinerary'> Save Itinerary! </button>"
-    // }
+    // debugger
+    if (attractionId && eateryId && parkId ){
+        contentTarget.innerHTML = "<button id='showItinerary'> Save Itinerary! </button>"
+    }
 }
 
 eventHub.addEventListener("click", clickEvent => {
+    console.log(clickEvent)
     if (clickEvent.target.id === "showItinerary") {
         clickEvent.preventDefault()
 
@@ -27,10 +52,9 @@ eventHub.addEventListener("click", clickEvent => {
         const eateryArray = useEateries()
         const parkArray = useParks()
         
-        const attractionId = document.querySelector("#attractionSelect").value
-        const eateryId = document.querySelector("#eaterySelect").value
-        const parkId = document.querySelector("#parkSelect").value
-        
+        attractionId = document.querySelector("#attractionSelect").value
+        eateryId = document.querySelector("#eaterySelect").value
+        parkId = document.querySelector("#parkSelect").value
 
         const attractionObj = attractionsArray.find((attractionObj) => {
             return attractionObj.id === parseInt(attractionId)
