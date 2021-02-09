@@ -37,6 +37,7 @@ export const AttractionModal = (attractionObj) => {
             <div class="modal__content">
                 <h2>More Information</h2>
                 <h3 class="attraction__name">${attractionObj.name}</h3>
+                <p class="attraction__location">${attractionObj.city}, ${attractionObj.state}</p>
                 <section class="modal__info">
                 <div class="attraction__description">${attractionObj.description}</div>
                 </section>
