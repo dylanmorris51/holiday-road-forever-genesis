@@ -1,6 +1,3 @@
-//similar to attractionSelect
-//throw into main
-import { ShowItineraryButton } from '../itinerary/ItinerarySaveButton.js'
 import { useEateries, getEateries} from './EateryProvider.js'
 
 const eventHub = document.querySelector(".container")
