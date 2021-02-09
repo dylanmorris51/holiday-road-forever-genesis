@@ -22,21 +22,16 @@ contentTarget.innerHTML = `
         <option value="0">Please select an attraction!</option>
         ${attractionsSelection.map(attraction => {
         return `<option value="${attraction.id}">${attraction.name}</option> 
-    `
-    }).join("")}
+        `
+        }).join("")}
     </select>
     `
 }
 
-
-
-
-
-
 export const attractionSelect = () => {
     getAttractions()
-    .then( () => {
-    const attractions = useAttractions()
-    render(attractions)
-    })
+        .then( () => {
+            const attractions = useAttractions()
+            render(attractions)
+        })
 }

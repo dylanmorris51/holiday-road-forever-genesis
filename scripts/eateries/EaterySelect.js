@@ -1,5 +1,3 @@
-//similar to attractionSelect
-//throw into main
 import { useEateries, getEateries} from './EateryProvider.js'
 
 const eventHub = document.querySelector(".container")
