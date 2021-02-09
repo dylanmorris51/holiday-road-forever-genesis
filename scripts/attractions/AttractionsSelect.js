@@ -14,8 +14,7 @@ eventHub.addEventListener("change", changeEvent =>{
         console.log("Attraction That Was Chosen:", customEvent.detail.attractionChosen)
         console.log("Attractions Selection Successfully Dispatched!")
         eventHub.dispatchEvent(customEvent)
-    }
-    ShowItineraryButton()     
+    }   
 })
 
 const render = attractionsSelection => {

@@ -20,7 +20,6 @@ eventHub.addEventListener("change", event => {
         eventHub.dispatchEvent(customEvent)
         console.log("Eatery Selection Event Successfully Dispatched!")
     }
-    ShowItineraryButton()
 })
 
 const render = eaterySelect => {

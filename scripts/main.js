@@ -12,5 +12,12 @@ attractionSelect()
 eaterySelect()
 ShowItineraryButton() 
 
+//testcodelolkillmejkilovelife
+// const eventHub = document.querySelector(".container")
+
+// eventHub.addEventListener(
+//     "parkSelect" 
+// )
+
 
 
