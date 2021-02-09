@@ -1,5 +1,6 @@
 //similar to attractionSelect
 //throw into main
+import { ShowItineraryButton } from '../itinerary/ItinerarySaveButton.js'
 import { useEateries, getEateries} from './EateryProvider.js'
 
 const eventHub = document.querySelector(".container")
@@ -19,6 +20,7 @@ eventHub.addEventListener("change", event => {
         eventHub.dispatchEvent(customEvent)
         console.log("Eatery Selection Event Successfully Dispatched!")
     }
+    ShowItineraryButton()
 })
 
 const render = eaterySelect => {

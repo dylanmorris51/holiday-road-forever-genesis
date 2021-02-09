@@ -2,6 +2,7 @@ import { useParks } from './ParkProvider.js'
 import './ParkSelect.js'
 import { WeatherPreview } from '../weather/WeatherPreview.js'
 import { ShowParkButton } from './ParkButton.js'
+import { ShowItineraryButton } from '../itinerary/ItinerarySaveButton.js'
 
 
 const eventHub = document.querySelector(".container")
@@ -17,6 +18,7 @@ eventHub.addEventListener("parkSelected", parkChosenEvent => {
         })
         renderPark(parkSelection)
         }
+        ShowItineraryButton()
     })
 
 const renderPark = (parkObj) => {

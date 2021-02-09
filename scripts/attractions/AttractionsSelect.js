@@ -1,3 +1,4 @@
+import { ShowItineraryButton } from "../itinerary/ItinerarySaveButton.js"
 import { useAttractions, getAttractions } from "./AttractionProvider.js"
 
 const eventHub = document.querySelector(".container")
@@ -14,6 +15,7 @@ eventHub.addEventListener("change", changeEvent =>{
         console.log("Attractions Selection Successfully Dispatched!")
         eventHub.dispatchEvent(customEvent)
     }
+    ShowItineraryButton()     
 })
 
 const render = attractionsSelection => {
@@ -27,11 +29,6 @@ contentTarget.innerHTML = `
     </select>
     `
 }
-
-
-
-
-
 
 export const attractionSelect = () => {
     getAttractions()

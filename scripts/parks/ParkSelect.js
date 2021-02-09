@@ -1,3 +1,4 @@
+import { ShowItineraryButton } from '../itinerary/ItinerarySaveButton.js'
 import { useParks, getParks } from './ParkProvider.js'
 
 const eventHub = document.querySelector(".container")
@@ -35,10 +36,11 @@ eventHub.addEventListener("change", changeEvent => {
                 
             }
         })
-        console.log("Park That Was Chosen:", customEvent.detail.parkThatWasChosen)
+        // console.log("Park That Was Chosen:", customEvent.detail.parkThatWasChosen)
         eventHub.dispatchEvent(customEvent)
-        console.log("Park Selection Event Successfully Dispatched!")
+        // console.log("Park Selection Event Successfully Dispatched!")
     }
+    // ShowItineraryButton()           
 })
 
 
@@ -72,4 +74,5 @@ eventHub.addEventListener("change", changeEvent => {
                 console.log("Coordinates Were Succesfully Dispatched!", coordinatesEvent.detail.coordinates)
             })
     }
+
 })
